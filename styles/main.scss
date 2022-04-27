@@ -1,0 +1,454 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+$main-bg-color: rgb(241,
+241,
+241);
+$nav-color: white;
+$box-shadow-color: rgb(218,
+218,
+218);
+$icon-color: rgb(126,
+126,
+126);
+$text-color: rgb(80,
+80,
+80);
+$main-nav: 75px;
+@mixin small {
+    @media only screen and (max-width: 600px) {
+        @content;
+    }
+}
+
+@mixin medium {
+    @media only screen and (max-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin large {
+    @media only screen and (max-width: 1440px) {
+        @content;
+    }
+}
+
+* {
+    outline: none;
+    font-family: "Roboto";
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: $main-bg-color;
+}
+
+#main-page-nav {
+    background-color: $nav-color;
+    position: sticky;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0 2px 5px $box-shadow-color;
+    width: 100%;
+    height: $main-nav;
+}
+
+#hamburger-icon-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100%;
+    color: $icon-color;
+    cursor: pointer;
+    margin-right: 10%;
+    @include small{
+        width: 50px;
+        margin-right: 2.5%;
+    }
+}
+
+#input-search-container {
+    position: relative;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 70%;
+    @include small{
+        width: 70%;
+    }
+    div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 70%;
+        background-color: rgb(245, 245, 245);
+        border: none;
+        height: 50px;
+        border-radius: 10px;
+        padding-left: 20px;
+        i {
+            margin-right: 20px;
+            color: $icon-color;
+        }
+    }
+}
+
+.input-search {
+    border: none;
+    width: 100%;
+    background-color: transparent;
+    font-size: medium;
+    color: $icon-color;
+    &:focus {
+        color: $text-color;
+    }
+    @include medium{
+        font-size: 15px;
+    }
+}
+
+#time-display-container {
+    position: relative;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+    color: $icon-color;
+    @include small{
+        margin-right: 20px;
+    }
+    @include medium{
+        margin-right: 20px;
+    }
+    #time-display {
+        color: $text-color;
+        margin-left: 10px;
+        font-size: 14px;
+        @include small{
+            font-size: 10px;
+        }
+    }
+}
+
+.fa-search:hover {
+    transform: scale(1.2);
+}
+
+.icon-rotate {
+    animation: rotation 0.15s linear;
+}
+
+.icon-rotate-inv {
+    animation: rotation 0.15s reverse linear;
+}
+
+// Animacion del icono de barras y cruz al ser pulsado
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(45deg);
+    }
+    100% {
+        transform: rotate(90deg);
+    }
+}
+
+#map_container {
+    position: relative;
+    height: calc(95vh - #{$main-nav}); //95 - altura_nav
+    margin-top: 20px;
+    #map {
+        width: 100%;
+        height: 100%;
+        box-shadow: 0 2px 5px $box-shadow-color;
+    }
+}
+
+.fullscreenMap{
+    width: 98%;
+    margin-right: 20px;
+    margin-left: auto;
+    z-index: 1000;
+}
+
+.notfullScreenMap{
+    width: 50%;
+    margin-left: auto;
+    margin-right: 20px;
+    @include medium{
+        width: 98%;
+    }
+}
+
+#fullscreen{
+    position: absolute;
+    border: 1px solid #bcb9b4;
+    width: 40px;
+    height: 40px;
+    top: 20px;
+    right: 20px;
+    z-index: 800;
+    cursor: pointer;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include medium{
+        display: none;
+    }
+}
+
+#info_container {
+    position: absolute;
+    width: 45%;
+    height: calc(95vh - #{$main-nav});
+    top: $main-nav;
+    margin-right: auto;
+    margin-left: 20px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    @include medium{
+        display: none;
+    }
+    #info {
+        width: 90%;
+        height: 100%;
+        background-color: #eeeeee;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px $box-shadow-color;
+        transition: all 0.1s ease-in-out;
+        &:hover {
+            transform: scale(1.01, 1.01);
+        }
+        #div_text {
+            margin: 20px 70px;
+            height: 90%;
+            color: rgb(22, 22, 22);
+            h1 {
+                text-align: center;
+                margin-top: 50px;
+                font-size: 50px;
+                @include medium{
+                    font-size: 25px;
+                }
+            }
+            p {
+                font-size: medium;
+                font-style: italic;
+                @include medium{
+                    font-size: 10px;
+                }
+            }
+            #p1info {
+                margin-top: 100px;
+            }
+            #p4info{
+                height: 10%;
+                display: flex;
+                align-items: center;
+                img{
+                    vertical-align: center;
+                    width: 64px;
+                }
+            }
+        }
+    }
+}
+
+.div_side {
+    position: absolute;
+    top: calc(#{$main-nav} + 10px);
+    background-color: white;
+    width: 30rem;
+    height: calc(90vh - #{$main-nav});
+    box-shadow: 0px 3px 5px 0 $box-shadow-color;
+    padding-top: 1rem;
+    z-index: 1000;
+
+   
+    h2{
+        text-align: center;
+    }
+    li{
+        list-style: none;
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+        background-color: #f5f5f5;
+        padding: 5px;
+        border-radius: 5px;
+        margin-left: 10px;
+        margin-right: 10px;
+        cursor: pointer;
+        transition: box-shadow .3s ease;
+        &:hover{
+            box-shadow: 0 2px 5px $box-shadow-color;
+        }
+        i{
+            margin-left: 10px;
+            margin-right: 10px;
+            font-size: 26px;
+            padding-top: 10px;
+        }
+    
+    }
+
+    @include small{
+        width: 10rem;
+        li{
+            width: 80%;
+            font-size: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        li i {
+            padding-top: 10px;
+        }
+        li p{
+            font-size: 10px;
+            text-align: center;
+        }
+    }
+}
+
+@keyframes display_sidemenu {
+    0%{
+        transform: translateX(-100%);
+    }
+    50%{
+        transform: translateX(-50%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+
+.active {
+    animation: display_sidemenu 0.2s linear;
+}
+
+.disabled{
+    transform: translateX(-100%);
+}
+
+//Alert Popup
+
+#alert_popup{
+    position: absolute;
+    display: flex;
+    top:20px;
+    right: 0px;
+    transform: translateX(400px);
+    background-color: #fea0a0;
+    width: 400px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0px 3px 5px 0 $box-shadow-color;
+    @include medium{
+        top: 87%;
+        z-index: 900;
+        width: 300px;
+    }
+
+}
+#alert_popup.invisible{
+    display: none;
+}
+
+#alert_popup{
+    animation-name: bounce;
+    animation-duration: 2s;
+
+}
+
+
+
+@keyframes bounce {
+	0% {
+		transform: translate(400px, 0);
+	}
+    20%{
+        transform: translate(-2.5%, 0);
+    }
+	40% {
+		transform: translate(-2.5%, 0);
+	}
+	80% {
+		transform: translate(-2.5%, 0); 
+	}
+	100% {
+        transform: translate(400px, 0);
+	} 
+}
+
+#help_mobile{
+    position: absolute;
+    top: calc(#{$main-nav} + 29px);
+    right: 44px;
+    background-color: white;
+    padding: 10px;
+    height: auto;
+    width: 20px;
+    text-align: center;
+    border-radius: 25%;
+    display: none;
+    z-index: 900;
+    font-size: 20px;
+    cursor: pointer;
+    @include small{
+        display: block;
+    }
+    @include medium{
+        display: block;
+    }
+}
+
+#mobile_info{
+    position: absolute;
+    width: 50%;
+    height: auto;
+    background-color: white;
+    top: calc(#{$main-nav} + 29px);
+    left: 25%;
+    z-index: 1000;
+    font-size: 16px;
+    padding: 20px;
+    border-radius: 20px;
+    animation: bounce_info .5s ease-in;
+    @include small{
+        width: 40%;
+        left: 25%;
+        font-size: 14px;
+    }
+
+}
+
+.visible{
+    display: inline;
+}
+
+.invisibleinfo{
+    display: none;
+}
+
+@keyframes bounce_info {
+	0%{
+        transform: scale(50%);
+    }
+
+    100%{
+        transform: scale(100%);
+    }
+}

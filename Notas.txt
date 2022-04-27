@@ -1,0 +1,10 @@
+uso de sass o scss
+esta el css comprimido -> https://www.youtube.com/watch?v=_a5j7KoflTs
+
+"liveSassCompile.settings.formats": [
+    {
+        "extensionName": ".min.css",
+        "format": "compressed",
+        "savePath": "/dist/css"
+    }
+],

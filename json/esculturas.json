@@ -1,0 +1,94 @@
+{
+  "Esculturas": [
+    {
+      "nombre": "Santo Tomás Villanueva",
+      "autor": "Ponzanelli",
+      "tipo": "Mármol",
+      "localizacion": "Puente Trinidad",
+      "coordenadas": [
+        39.47862182845883,
+        -0.3730398513897273
+      ]
+    },
+    {
+      "nombre": "S.P. Pascual",
+      "autor": "Ponzanelli",
+      "tipo": "Piedra",
+      "localizacion": "P. Pechina",
+      "coordenadas": [
+        39.47696616800308,
+        -0.3917502874415916
+      ]
+    },
+    {
+      "nombre": "Tritón",
+      "autor": "Ponzanelli",
+      "tipo": "Mármol",
+      "localizacion": "La Glorieta",
+      "coordenadas": [
+        39.47261091190722,
+        -0.3694203802621919
+      ]
+    },
+    {
+      "nombre": "Neptuno",
+      "autor": "Ponzanelli",
+      "tipo": "Mármol",
+      "localizacion": "Parque del parterre",
+      "coordenadas": [
+        39.471512684101775,
+        -0.37056103569225013
+      ]
+    },
+    {
+      "nombre": "San Vicente Ferrer",
+      "autor": "Cloostermans",
+      "tipo": "Mármol",
+      "localizacion": "Plaza del Temple",
+      "coordenadas": [
+        39.476388824364435,
+        -0.36877894995761246
+      ]
+    },
+    {
+      "nombre": "José Ribera",
+      "autor": "Benlliure",
+      "tipo": "Bronce",
+      "localizacion": "Plaza Poeta Llorente",
+      "coordenadas": [
+        39.47691240078143,
+        -0.3712954615796516
+      ]
+    },
+    {
+      "nombre": "Teodoro LLorente",
+      "autor": "Francisco Marco Díaz-Pintado",
+      "tipo": "Bronce",
+      "localizacion": "Plaza de América",
+      "coordenadas": [
+        39.47058316537406,
+        -0.36515216913640175
+      ]
+    },
+    {
+      "nombre": "Charlotte von Stein",
+      "autor": "Andreu Alfaro",
+      "tipo": "Acero",
+      "localizacion": "Estación del Norte",
+      "coordenadas": [
+        39.46722950771754,
+        -0.37763030847862
+      ]
+    },
+    {
+      "nombre": "La Pantera Rosa",
+      "autor": "Miquel Navarro",
+      "tipo": "Hierro",
+      "localizacion": "Plaza de Manuel Sanchis Guarner",
+      "coordenadas": [
+        39.457593594359736,
+        -0.37621214538677056
+      ]
+    }
+  ]
+}

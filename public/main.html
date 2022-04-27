@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../dist/css/main.min.css" />
+    <!--FONT AWESOME-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <!--LEAFLET-->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+
+    <title>Página Principal</title>
+  </head>
+
+  <body>
+    <nav id="main-page-nav">
+      <div id="hamburger-icon-container"><i class="fas fa-bars fa-lg"></i></div>
+      <div id="input-search-container">
+        <div>
+          <i class="fas fa-search"></i>
+          <input id="search" class="input-search" type="text" placeholder="Buscar por nombre. Ejemplo: 'San Vicente Ferrer'" />
+        </div>
+      </div>
+      <div id="time-display-container">
+        <i class="fas fa-calendar-alt fa-lg"></i>
+        <p id="time-display"></p>
+      </div>
+    </nav>
+    <section id="map_container" class="notfullScreenMap">
+      <div id="map"></div>
+      <div id="fullscreen"><i class="fa-solid fa-compress fa-xl"></i></div>
+    </section>
+
+    <section id="info_container">
+      <div id="info">
+        <div id="div_text">
+          <h1>¡Bienvenido!</h1>
+          <p id="p1info">
+            1. En esta aplicación web encontrarás información de
+            <span style="color: rgb(40, 40, 149)">esculturas</span> repartidas
+            por Valencia.
+          </p>
+          <p id="p2info">
+            2. El funcionamiento es sencillo. A la derecha verás un mapa, en
+            este, aparecen puntos interactuables.
+          </p>
+          <p id="p3info">
+            3. Si hacemos click en alguno de ellos, nos llevará a una página con
+            su información.
+          </p>
+          <p id="p4info">
+            Este es el icono de cada escultura.<img
+              src="https://cdn-icons-png.flaticon.com/512/4054/4054732.png"
+            />
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div id="side_menu" class="div_side disabled">
+      <h2>Filtros</h2>
+
+      <li id="filterBronce"><i class="fa-solid fa-b"></i> <p>Solo material bronce</p></li>
+      <li id="filterMarmol"><i class="fa-solid fa-m"></i> <p>Solo material mármol</p></li>
+      <li id="filterPiedra"><i class="fa-solid fa-p"></i> <p>Solo material piedra</p></li>
+    </div>
+
+    <div id="alert_popup" class="invisible">Filtros de materiales reiniciados 
+    </div>
+    <div id="help_mobile"><i class="fa-solid fa-question"></i></div>
+    <div id="mobile_info" class="invisibleinfo">
+      <p>1. En esta aplicación web encontrarás información de esculturas repartidas por Valencia.</p>
+      <p>2. El funcionamiento es sencillo. A la derecha verás un mapa, en este, aparecen puntos interactuables.</p>
+      <p>3. Si hacemos click en alguno de ellos, nos llevará a una página con su información.</p>
+    </div>
+  </body>
+  <script src="../scripts/time.js"></script>
+  <script src="../scripts/lateral_menu.js"></script>
+  <script src="../scripts/map.js"></script>
+  <script src="../scripts/fullscreenmap.js"></script>
+  <script src="../scripts/popup.js"></script>
+  <script>
+    var info = document.getElementById("mobile_info");
+    window.addEventListener('resize', function() {
+    var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    if (w <= 860) {
+      document.getElementById("search").placeholder = "Buscar por nombre"
+    } else if( w > 1024){
+      if (!info.classList.contains("invisibleinfo") && info.classList.contains("visible")) {
+        info.classList.toggle("visible");
+        info.classList.toggle("invisibleinfo");
+    
+        }
+    } else {
+      document.getElementById("search").placeholder = "Buscar por nombre. Ejemplo: 'San Vicente Ferrer'"
+    }
+    });
+  </script>
+</html>
