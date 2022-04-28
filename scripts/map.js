@@ -3,6 +3,7 @@ const search = document.getElementById("search");
 const filterPiedra = document.getElementById("filterPiedra");
 const filterMarmol = document.getElementById("filterMarmol");
 const filterBronce = document.getElementById("filterBronce");
+var materialFiltered = false;
 var markers = [];
 var xhr = new XMLHttpRequest();
 
@@ -17,19 +18,15 @@ function crearMapa(json) {
     iconSize: [40, 40],
     iconAnchor: [20, 20],
   });
-  L.tileLayer(
-    "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
-    {
-      attribution:
-        'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-      maxZoom: 18,
-      id: "mapbox/streets-v11",
-      tileSize: 512,
-      zoomOffset: -1,
-      accessToken:
-        "pk.eyJ1IjoiYWxleGJyNzg0IiwiYSI6ImNrenRtd3B6czBpbnMydmw2eG5kM2JmdGkifQ.sdRTgU8nDHXuqqNS9q1aUQ",
-    }
-  ).addTo(map);
+  L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
+    attribution:
+      'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: "mapbox/streets-v11",
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: "pk.eyJ1IjoiYWxleGJyNzg0IiwiYSI6ImNrenRtd3B6czBpbnMydmw2eG5kM2JmdGkifQ.sdRTgU8nDHXuqqNS9q1aUQ",
+  }).addTo(map);
 
   for (var i = 0; i < json.Esculturas.length; i++) {
     marker = L.marker(json.Esculturas[i].coordenadas, {
@@ -52,18 +49,35 @@ function crearMapa(json) {
     });
   });
 
-  filterPiedra.addEventListener("click", function(){filterMat("Piedra")}, false) //Llamando a la funcion dentro de una funcion evitamos que se llame automaticamente
-  filterBronce.addEventListener("click", function(){filterMat("Bronce")}, false) //Llamando a la funcion dentro de una funcion evitamos que se llame automaticamente
-  filterMarmol.addEventListener("click", function(){filterMat("Mármol")}, false) //Llamando a la funcion dentro de una funcion evitamos que se llame automaticamente
-
-  
+  filterPiedra.addEventListener(
+    "click",
+    function () {
+      filterMat("Piedra");
+    },
+    false
+  ); //Llamando a la funcion dentro de una funcion evitamos que se llame automaticamente
+  filterBronce.addEventListener(
+    "click",
+    function () {
+      filterMat("Bronce");
+    },
+    false
+  ); //Llamando a la funcion dentro de una funcion evitamos que se llame automaticamente
+  filterMarmol.addEventListener(
+    "click",
+    function () {
+      filterMat("Mármol");
+    },
+    false
+  ); //Llamando a la funcion dentro de una funcion evitamos que se llame automaticamente
 
   Init(json);
 }
 
-function filterMat(f){
-  for (var i = 0; i < markers.length; i++){
-    if(markers[i].options.material != f){
+function filterMat(f) {
+  materialFiltered = true;
+  for (var i = 0; i < markers.length; i++) {
+    if (markers[i].options.material != f) {
       map.removeLayer(markers[i]);
     } else {
       if (!map.hasLayer(markers[i])) {
@@ -73,17 +87,14 @@ function filterMat(f){
   }
 }
 
-
 function Init(json) {
   search.addEventListener("input", () => {
     if (search.value != "") {
-      showPopup()
+      if(materialFiltered)
+        showPopup();
+      materialFiltered = false;
       for (var i = 0; i < json.Esculturas.length; i++) {
-        if (
-          !markers[i].options.title
-            .toLowerCase()
-            .includes(search.value.toLowerCase())
-        ) {
+        if (!markers[i].options.title.toLowerCase().includes(search.value.toLowerCase())) {
           map.removeLayer(markers[i]);
         } else {
           if (!map.hasLayer(markers[i])) {

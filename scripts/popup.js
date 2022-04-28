@@ -19,10 +19,8 @@ infobtn.onclick = () => {
   if (!info.classList.contains("visible") && info.classList.contains("invisibleinfo")) {
     info.classList.toggle("visible");
     info.classList.toggle("invisibleinfo");
-
   } else if (!info.classList.contains("invisibleinfo") && info.classList.contains("visible")) {
     info.classList.toggle("visible");
     info.classList.toggle("invisibleinfo");
-    
   }
 };
