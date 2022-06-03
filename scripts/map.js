@@ -90,8 +90,7 @@ function filterMat(f) {
 function Init(json) {
   search.addEventListener("input", () => {
     if (search.value != "") {
-      if(materialFiltered)
-        showPopup();
+      if (materialFiltered) showPopup();
       materialFiltered = false;
       for (var i = 0; i < json.Esculturas.length; i++) {
         if (!markers[i].options.title.toLowerCase().includes(search.value.toLowerCase())) {
