@@ -1,3 +1,5 @@
+/* A JavaScript function that is called when the fullscreen button is clicked. It toggles the class of
+the map container between notfullScreenMap and fullscreenMap. */
 const fullScreenBtn = document.getElementById("fullscreen");
 const mapContainer = document.getElementById("map_container");
 

@@ -1,7 +1,5 @@
 var icon_lateral_menu = document.querySelector(".fa-bars");
-var icon_lateral_menu_container = document.querySelector(
-  "#hamburger-icon-container"
-);
+var icon_lateral_menu_container = document.querySelector("#hamburger-icon-container");
 const side_menu = document.getElementById("side_menu");
 var open = false;
 

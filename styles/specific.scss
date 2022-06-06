@@ -149,3 +149,20 @@ body {
         cursor: pointer;
     }
 }
+
+#googlemaps{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    img{
+        width: 100%;
+        height: 100%;
+    }
+    transition: transform 0.3s ease;
+    &:hover{
+        transform: scale(1.1) rotate(20deg);
+    }
+}

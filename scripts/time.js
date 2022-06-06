@@ -6,6 +6,10 @@ var zeroH = "";
 
 RefreshTime();
 
+/**
+ * It gets the current date and time, and then displays it in the HTML element with the id
+ * "time_display".
+ */
 function RefreshTime() {
   date = new Date();
   if (date.getSeconds() < 10) zeroS = "0";
@@ -18,6 +22,9 @@ function RefreshTime() {
   UpdateTime();
 }
 
+/**
+ * It updates the time every second.
+ */
 function UpdateTime() {
   var refresh = 1000;
   setTimeout("RefreshTime()", refresh);

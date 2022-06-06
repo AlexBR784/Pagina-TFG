@@ -4,13 +4,26 @@ const filterPiedra = document.getElementById("filterPiedra");
 const filterMarmol = document.getElementById("filterMarmol");
 const filterBronce = document.getElementById("filterBronce");
 var materialFiltered = false;
+
+/* An array that stores all the markers. */
 var markers = [];
+/* A global variable that stores the URL of the Google Maps page. */
+var mapsUrl = "";
+/* Creating a new XMLHttpRequest object. */
 var xhr = new XMLHttpRequest();
 
-fetch("../json/esculturas.json")
+/* A constant that stores the path to the JSON file. */
+const JSONpath = "../json/esculturas.json";
+
+/* Fetching the JSON file and then calling the function crearMapa with the JSON file as a parameter. */
+fetch(JSONpath)
   .then((response) => response.json())
   .then((json) => crearMapa(json));
 
+/**
+ * It creates a map, adds markers to it, and adds event listeners to the markers.
+ * @param json - the json file
+ */
 function crearMapa(json) {
   map = L.map("map").setView([39.47, -0.37], 14);
   var leafletIcon = L.icon({
@@ -35,6 +48,7 @@ function crearMapa(json) {
       material: json.Esculturas[i].tipo,
       draggable: false,
       icon: leafletIcon,
+      location: json.Esculturas[i].coordenadas[0] + "," + json.Esculturas[i].coordenadas[1],
       id: i,
     });
 
@@ -45,6 +59,8 @@ function crearMapa(json) {
   markers.forEach((m) => {
     m.on("click", function () {
       console.log(m.options.title.replace(/ /g, "_"));
+      mapsUrl = `https://www.google.com.sa/maps/search/${m.options.location}?hl=es`;
+      localStorage.setItem("MapsLocation", mapsUrl);
       redirectTo(m.options.title.replace(/ /g, "_"));
     });
   });
@@ -74,6 +90,11 @@ function crearMapa(json) {
   Init(json);
 }
 
+/**
+ * If the material is not equal to the filter, remove the marker from the map. If the material is equal
+ * to the filter, add the marker to the map
+ * @param f - the material to filter by
+ */
 function filterMat(f) {
   materialFiltered = true;
   for (var i = 0; i < markers.length; i++) {
@@ -87,6 +108,11 @@ function filterMat(f) {
   }
 }
 
+/**
+ * Once this function Init is called, it adds listeners to the search input HTML element showing an alert if needed
+ * and only showing the markers with ID/name equal to the input value
+ * @param json - the JSON file with the sculptures information
+ */
 function Init(json) {
   search.addEventListener("input", () => {
     if (search.value != "") {
@@ -109,6 +135,11 @@ function Init(json) {
   });
 }
 
+/**
+ * It redirects the user to a page, and if the page doesn't exist, it redirects the user to an error
+ * page.
+ * @param page - The page ID you want to redirect to.
+ */
 function redirectTo(page) {
   xhr.open("head", "./pages/" + page + ".html");
   xhr.send(null);
