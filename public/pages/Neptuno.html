@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neptuno</title>
+    <link rel="stylesheet" href="../../dist/css/specific.min.css">
+</head>
+<body>
+    <div id="googlemaps">
+        <img src="../../images/maps.png" alt="Google Maps">
+    </div>
+    <div class="back">
+        <img src="../../images/Back_Arrow.png" onClick="window.location.href = '../index.html'">
+    </div>
+    <div class="container">
+        <h1 class="name">Neptuno</h1>
+    </div>
+    <div class="info">
+        <div id="text" class="info_container">
+            <p>Se trata de una fuente situada en los Jardines del Parterre.</p>
+            <p>Es una obra Giacomo Antonio Ponzanelli completada en el siglo XVIII.<p>
+            <p>En la mitología romana, Neptuno era el dios del agua y el mar. El mar es su reino, controlando a todos los seres que ahi habitan. Además, cuenta con un tridente, como se puede ver en la obra, 
+                una herramienta muy útil para manejar el mar a su antojo. </p>
+            <p>También se puede observar que el dios posa sobre un pez mitológico.</p>
+        </div>
+        <div id="image" class="info_container_img">
+            <img style="height: 80%;" src="../../images/Esculturas/neptuno.jpg">
+        </div>
+    </div>
+</body>
+<script>
+    var currentMapsUrl = localStorage.getItem("MapsLocation");
+
+    const gmapsdiv = document.getElementById("googlemaps");
+    gmapsdiv.onclick = ()=>{
+        window.open(currentMapsUrl);
+    }
+</script>
+</html>

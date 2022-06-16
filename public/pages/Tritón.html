@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tritón</title>
+    <link rel="stylesheet" href="../../dist/css/specific.min.css">
+</head>
+<body>
+    <div id="googlemaps">
+        <img src="../../images/maps.png" alt="Google Maps">
+    </div>
+    <div class="back">
+        <img src="../../images/Back_Arrow.png" onClick="window.location.href = '../index.html'">
+    </div>
+    <div class="container">
+        <h1 class="name">Tritón</h1>
+    </div>
+    <div class="info">
+        <div id="text" class="info_container">
+            <p>Se trata de una fuente situada en los Jardines de la Glorita.</p>
+            <p>Es una obra Giacomo Antonio Ponzanelli completada en el siglo XVIII encargada por el canónico Antonio Pontons García y se trata de una de las esculturas más valiosas de la Ciudad de Valencia.<p>
+            <p>Es un dios griego del mar, hijo de Poseidón y Anfitrite que se le representa con la parte superior del cuerpo de un humano y la parte inferior del cuerpo de un pez </p>
+            <p>En la escultura se le puede ver con una caracola, que sopla como una trompeta para calmar o elevar las olas haciendo un ruido monstruoso.</p>
+        </div>
+        <div id="image" class="info_container_img">
+            <img src="../../images/Esculturas/Tritón.jpg">
+        </div>
+    </div>
+</body>
+<script>
+    var currentMapsUrl = localStorage.getItem("MapsLocation");
+
+    const gmapsdiv = document.getElementById("googlemaps");
+    gmapsdiv.onclick = ()=>{
+        window.open(currentMapsUrl);
+    }
+</script>
+</html>

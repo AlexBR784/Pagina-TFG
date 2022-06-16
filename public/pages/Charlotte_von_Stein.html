@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charlotte Von Stein</title>
+    <link rel="stylesheet" href="../../dist/css/specific.min.css">
+</head>
+<body>
+    <div id="googlemaps">
+        <img src="../../images/maps.png" alt="Google Maps">
+    </div>
+    <div class="back">
+        <img src="../../images/Back_Arrow.png" onClick="window.location.href = '../index.html'">
+    </div>
+    <div class="container">
+        <h1 class="name">Charlotte Von Stein</h1>
+    </div>
+    <div class="info">
+        <div id="text" class="info_container">
+            <p>Estatua realizada en acero pintado por el escultor Andreu Alfaro. Una obra realizada en 1981, abstracta, con el nombre de Charlotte von Stein.</p>
+            <p>Von Stein era una mujer nacida en Alemania en 1742, fue una dama de compañía en la corte de Weimar y amiga de Goethe.</p>
+            <p>Conoció a Goethe en el 1775 y se dice que Goethe estaba enamorado de ella, demostrado en más de 1700 cartas. Formando así parte de la historia de la literatura en Alemania.</p>
+            
+        </div>
+        <div id="image" class="info_container_img">
+            <img id="imgSpecific" src="../../images/Esculturas/Charlotte.jpg">
+        </div>
+    </div>
+    
+</body>
+<script>
+    var currentMapsUrl = localStorage.getItem("MapsLocation");
+
+    const gmapsdiv = document.getElementById("googlemaps");
+    gmapsdiv.onclick = ()=>{
+        window.open(currentMapsUrl);
+    }
+</script>
+</html>

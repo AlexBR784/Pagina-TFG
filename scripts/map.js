@@ -51,6 +51,40 @@ function crearMapa(json) {
       location: json.Esculturas[i].coordenadas[0] + "," + json.Esculturas[i].coordenadas[1],
       id: i,
     });
+    marker.bindPopup(
+      `
+      <style> td:nth-child(2n),th:nth-child(2n){border-left: 3px solid #adadad;}
+      td,th{padding:2px;}
+      </style>
+      <table style='border-spacing: 0px;'>
+      <tbody>
+        <tr style='background-color: #d1d1d1'>
+          <th>Nombre</th>
+          <th>${json.Esculturas[i].nombre}</th>
+        </tr>
+        <tr>
+          <td>Autor</td>
+          <td>${json.Esculturas[i].autor}</td>
+        </tr>
+        <tr style='background-color: #d1d1d1'>
+          <th>Material</th>
+          <th>${json.Esculturas[i].tipo}</th>
+        </tr>
+        <tr>
+          <td>Coords.</td>
+          <td>${json.Esculturas[i].coordenadas}</td>
+        </tr>
+      </tbody>
+      </table>`
+    );
+
+    marker.on("mouseover", function (e) {
+      this.openPopup();
+    });
+
+    marker.on("mouseout", function (e) {
+      this.closePopup();
+    });
 
     markers.push(marker);
     map.addLayer(marker);
