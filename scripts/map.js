@@ -117,6 +117,9 @@ function filterMat(f) {
     for (var i = 0; i < markers.length; i++) {
       if (!map.hasLayer(markers[i])) map.addLayer(markers[i]);
     }
+    showPopup();
+    appeared = false;
+    materialFiltered = false;
   } else {
     materialFiltered = true;
     for (var i = 0; i < markers.length; i++) {
