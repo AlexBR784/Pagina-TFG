@@ -40,9 +40,16 @@ scene.add(light4);
 scene.add( axesHelper );*/
 
 const size = {
-  width: window.innerWidth - 1000,
-  height: window.innerHeight - 600,
+  width: window.innerWidth,
+  height: window.innerHeight,
 };
+window.addEventListener("resize", onWindowResize, false);
+function onWindowResize() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+
+  renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
+}
 
 const camera = new THREE.PerspectiveCamera(90, size.width / size.height, 0.1, 100);
 camera.up.set(0, 1, 0);
@@ -57,10 +64,10 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.target.set(0, 1.5, 0);
 controls.update();
 
-renderer.setSize(size.width, size.height);
+renderer.setSize(size.width / 2, size.height / 2);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.updateShadowMap.enabled = true;
-
+renderer.setPixelRatio(window.devicePixelRatio);
 function animate() {
   requestAnimationFrame(animate);
   renderer.setClearColor(0xffffff, 0);
