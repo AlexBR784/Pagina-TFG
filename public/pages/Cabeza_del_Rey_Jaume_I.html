@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabeza del Rey Jaume I</title>
+    <link rel="stylesheet" href="../../dist/css/specific.min.css">
+</head>
+<body>
+    <div id="googlemaps">
+        <img src="../../images/maps.png" alt="Google Maps">
+    </div>
+    <div class="back">
+        <img src="../../images/Back_Arrow.png" onClick="window.location.href = '../index.html'">
+    </div>
+    <div class="container">
+        <h1 class="name">Cabeza del Rey Jaume I</h1>
+    </div>
+    <div class="info">
+        <div id="text" class="info_container">
+            <p>Obra de Antonio Sacramento. Confeccionada en hierro. Fue un encargo del Club Rotary. Se trata de una obra un tanto abstracta pero en donde se ven claramente los rasgos identificativos del monarca, su casco con el dragón de San Jorge. Sobre el pedestal de hierro sobre el que se alza el rostro del rey un rombo nos recuerda las armas del rey de Aragón, 
+                que conquistó la ciudad de Valencia a los musulmanes en 1238.</p>
+        </div>
+        <div id="image" class="info_container_img">
+            <img style="height: 100%; width: 70%;" src="../../images/Esculturas/jaume.jpg">
+        </div>
+    </div>
+    
+</body>
+<script>
+    var currentMapsUrl = localStorage.getItem("MapsLocation");
+
+    const gmapsdiv = document.getElementById("googlemaps");
+    gmapsdiv.onclick = ()=>{
+        window.open(currentMapsUrl);
+    }
+</script>
+</html>

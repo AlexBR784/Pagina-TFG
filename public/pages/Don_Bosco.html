@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Don Bosco</title>
+    <link rel="stylesheet" href="../../dist/css/specific.min.css">
+</head>
+<body>
+    <div id="googlemaps">
+        <img src="../../images/maps.png" alt="Google Maps">
+    </div>
+    <div class="back">
+        <img src="../../images/Back_Arrow.png" onClick="window.location.href = '../index.html'">
+    </div>
+    <div class="container">
+        <h1 class="name">Don Bosco</h1>
+    </div>
+    <div class="info">
+        <div id="text" class="info_container">
+            <p>Don Bosco fue el fundador de la Institución Religiosa Salesiana. Realizada por suscripción popular, 
+                es un grupo escultórico en bronce sobre base de mamposteria y hormigón recubierto de piedra. 
+                Obra del escultor valenciano Bernardino Rodríguez Paredes, fue inaugurado el 31 de enero de 1999 fiesta de San Juan Bosco. 
+                En la base figura la inscripción: Don Bosco (1898-1998). En el conjunto podemos ver a San Juan Bosco, 
+                rodeado por un grupo de niños, un niño lleva un libro en la mano, mientras que una niña sostiene una paloma 
+                que va a comenzar el vuelo.</p>
+           
+        </div>
+        <div id="image" class="info_container_img">
+            <img src="../../images/Esculturas/don_bosco.jpg">
+        </div>
+    </div>
+    
+</body>
+<script>
+    var currentMapsUrl = localStorage.getItem("MapsLocation");
+
+    const gmapsdiv = document.getElementById("googlemaps");
+    gmapsdiv.onclick = ()=>{
+        window.open(currentMapsUrl);
+    }
+</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callejeros</title>
+    <link rel="stylesheet" href="../../dist/css/specific.min.css">
+</head>
+<body>
+    <div id="googlemaps">
+        <img src="../../images/maps.png" alt="Google Maps">
+    </div>
+    <div class="back">
+        <img src="../../images/Back_Arrow.png" onClick="window.location.href = '../index.html'">
+    </div>
+    <div class="container">
+        <h1 class="name">Callejeros</h1>
+    </div>
+    <div class="info">
+        <div id="text" class="info_container">
+            <p>Sobre un gran pedestal cúbico encontramos las figuras de dos animales en posición sedente y acurrucados entre sí, un perro y una gata esculpidos en bronce.</p>
+            <p>La obra pretende ser una denuncia contra el abandono de los animales y un homenaje a aquellas personas que los ayudan.</p>
+            <p>El perro lleva por nombre Tristán y la gata Soledad.</p>
+        </div>
+        <div id="image" class="info_container_img">
+            <img style="height: 100%; width: 70%;" src="../../images/Esculturas/callejeros.jpg">
+        </div>
+    </div>
+    
+</body>
+<script>
+    var currentMapsUrl = localStorage.getItem("MapsLocation");
+
+    const gmapsdiv = document.getElementById("googlemaps");
+    gmapsdiv.onclick = ()=>{
+        window.open(currentMapsUrl);
+    }
+</script>
+</html>

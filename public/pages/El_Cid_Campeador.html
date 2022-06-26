@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Cid Campeador</title>
+    <link rel="stylesheet" href="../../dist/css/specific.min.css">
+</head>
+<body>
+    <div id="googlemaps">
+        <img src="../../images/maps.png" alt="Google Maps">
+    </div>
+    <div class="back">
+        <img src="../../images/Back_Arrow.png" onClick="window.location.href = '../index.html'">
+    </div>
+    <div class="container">
+        <h1 class="name">El Cid Campeador</h1>
+    </div>
+    <div class="info">
+        <div id="text" class="info_container">
+            <p>Instalada en el año 1964, el grupo ecuestre es una donación de la escultora norteamericana Anna Hyatt Huntington.</p>
+            <p>La escultora realizó una replica de esta escultura para la ciudad de Sevilla con motivo de la Exposición Iberoamericana de 1929, y de esta obra el escultor Juan de Avalos realizó la obra que ahora tenemos en nuestra ciudad.</p>
+        </div>
+        <div id="image" class="info_container_img">
+            <img style="height: 100%; width: 50%;" src="../../images/Esculturas/cid.jpg">
+        </div>
+    </div>
+    
+</body>
+<script>
+    var currentMapsUrl = localStorage.getItem("MapsLocation");
+
+    const gmapsdiv = document.getElementById("googlemaps");
+    gmapsdiv.onclick = ()=>{
+        window.open(currentMapsUrl);
+    }
+</script>
+</html>

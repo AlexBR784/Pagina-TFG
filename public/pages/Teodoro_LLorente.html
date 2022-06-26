@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teodoro Llorente</title>
+    <link rel="stylesheet" href="../../dist/css/specific.min.css">
+</head>
+<body>
+    <div id="googlemaps">
+        <img src="../../images/maps.png" alt="Google Maps">
+    </div>
+    <div class="back">
+        <img src="../../images/Back_Arrow.png" onClick="window.location.href = '../index.html'">
+    </div>
+    <div class="container">
+        <h1 class="name">Teodoro Llorente</h1>
+    </div>
+    <div class="info">
+        <div id="text" class="info_container">
+            <p>Se trata de un busto de bronce realizado por el escultor valenciano Francisco Marco Díaz-Pintado nacido en Valencia en 1887. Busto dedicado a Teodoro LLorente Falcó. Fue puesto en esta localización el 14 de julio de 1969.</p>
+            <p>El busto es una copia en bronce del realizado en mármol por el escultor a tamaño natural en 1944.</p>
+            <p>Teodoro LLorente Falcó escritor y periodista y desde 1939 fue presidente de la Real Academia de Bellas Artes de San Carlos y en 1948 recibió la cruz de Alfonso X el Sabio y la medalla del trabajo.</p>
+        </div>
+        <div id="image" class="info_container_img">
+            <img style="height: 100%; width: 50%;" src="../../images/Esculturas/teodoro_llorente.jpg">
+        </div>
+    </div>
+    
+</body>
+<script>
+    var currentMapsUrl = localStorage.getItem("MapsLocation");
+
+    const gmapsdiv = document.getElementById("googlemaps");
+    gmapsdiv.onclick = ()=>{
+        window.open(currentMapsUrl);
+    }
+</script>
+</html>

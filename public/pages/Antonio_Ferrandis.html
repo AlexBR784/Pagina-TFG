@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antonio Ferrandis</title>
+    <link rel="stylesheet" href="../../dist/css/specific.min.css">
+</head>
+<body>
+    <div id="googlemaps">
+        <img src="../../images/maps.png" alt="Google Maps">
+    </div>
+    <div class="back">
+        <img src="../../images/Back_Arrow.png" onClick="window.location.href = '../index.html'">
+    </div>
+    <div class="container">
+        <h1 class="name">Antonio Ferrandis</h1>
+    </div>
+    <div class="info">
+        <div id="text" class="info_container">
+            <p>Monumento levantado por el escultor valenciano Rafael Orellano, a la memoria del actor Antonio Ferrandis Monrabal. Ferrandis nació en Paterna (Valencia) el 28 de febrero de 1921 y falleció en la ciudad de Valencia a los 79 años el 16 de Octubre de 2.000. Nombrado hijo adoptivo de Valencia.</p>
+            <p>Sobre un monticulo de piedras artificial se alza un pedestal, en cuya parte superior encontramos una paloma con las alas extendidas. En el pedestal el busto de perfil en relieve con la cara del actor. En la parte posterior del monumento la imagen del Oscar que recibió el actor por la pelicula del que fue protagonista Volver a empezar del director José Luis Garci.</p>
+        </div>
+        <div id="image" class="info_container_img">
+            <img style="height: 100%; width: 50%;" src="../../images/Esculturas/antonio_ferrandis.jpg">
+        </div>
+    </div>
+    
+</body>
+<script>
+    var currentMapsUrl = localStorage.getItem("MapsLocation");
+
+    const gmapsdiv = document.getElementById("googlemaps");
+    gmapsdiv.onclick = ()=>{
+        window.open(currentMapsUrl);
+    }
+</script>
+</html>

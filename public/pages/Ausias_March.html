@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ausias March</title>
+    <link rel="stylesheet" href="../../dist/css/specific.min.css">
+</head>
+<body>
+    <div id="googlemaps">
+        <img src="../../images/maps.png" alt="Google Maps">
+    </div>
+    <div class="back">
+        <img src="../../images/Back_Arrow.png" onClick="window.location.href = '../index.html'">
+    </div>
+    <div class="container">
+        <h1 class="name">Ausias March</h1>
+    </div>
+    <div class="info">
+        <div id="text" class="info_container">
+            <p>El Ayuntamiento encargo a Nassio Bayarri una obra sobre Ausias March. La obra se colocó en 1998 en la Avenida que lleva su nombre, en el seto central que divide los dos carriles de circulación, una de las vias que mas trafico soporta de toda Valencia.</p>
+            <p>En los laterales del capitel en su parte anterior y posterior dos figuras que representan dos angeles realizados también en bronce y que constrasta con el color rojizo del hierro del capitel.</p>
+        </div>
+        <div id="image" class="info_container_img">
+            <img style="height: 100%; width: 50%;" src="../../images/Esculturas/ausias.jpg">
+        </div>
+    </div>
+    
+</body>
+<script>
+    var currentMapsUrl = localStorage.getItem("MapsLocation");
+
+    const gmapsdiv = document.getElementById("googlemaps");
+    gmapsdiv.onclick = ()=>{
+        window.open(currentMapsUrl);
+    }
+</script>
+</html>

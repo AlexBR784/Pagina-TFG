@@ -89,6 +89,86 @@
         39.457593594359736,
         -0.37621214538677056
       ]
+    },
+    {
+      "nombre": "Antonio Ferrandis",
+      "autor": "Rafael Orellano",
+      "tipo": "Piedra",
+      "localizacion": "Paseo Marítimo",
+      "coordenadas": [
+        39.46827934159483,
+        -0.32401234907634646
+      ]
+    },
+    {
+      "nombre": "Ausias March",
+      "autor": "Nassio Bayarri",
+      "tipo": "Hierro",
+      "localizacion": "Av. Ausias March",
+      "coordenadas": [
+        39.452646910196144,
+        -0.37275072701751416
+      ]
+    },
+    {
+      "nombre": "Cabeza del Rey Jaume I",
+      "autor": "Antonio Sacramento",
+      "tipo": "Hierro",
+      "localizacion": "Plaza de Zaragoza",
+      "coordenadas": [
+        39.46858956296241,
+        -0.36115646514416233
+      ]
+    },
+    {
+      "nombre": "Callejeros",
+      "autor": "Elena Negueroles Colomer",
+      "tipo": "Bronce",
+      "localizacion": "Plaza de los Pinazo",
+      "coordenadas": [
+        39.47003107248482,
+        -0.37088525253303906
+      ]
+    },
+    {
+      "nombre": "Don Bosco",
+      "autor": "Bernardino Rodríguez Paredes",
+      "tipo": "Bronce, Piedra y Hormigón",
+      "localizacion": "Calle de Sagunto",
+      "coordenadas": [
+        39.49161060404926,
+        -0.3742049865649521
+      ]
+    },
+    {
+      "nombre": "Eduardo Escalante",
+      "autor": "Mariano Benlliure",
+      "tipo": "Bronce",
+      "localizacion": "Plaza Lorenzo de la Flor",
+      "coordenadas": [
+        39.46937768886824,
+        -0.3308250055208552
+      ]
+    },
+    {
+      "nombre": "El Cid Campeador",
+      "autor": "Anna Hyatt Huntington",
+      "tipo": "Bronce",
+      "localizacion": "Gran Vía Ramón y Cajal",
+      "coordenadas": [
+        39.46517512498597,
+        -0.38132618682354263
+      ]
+    },
+    {
+      "nombre": "Gigante de Sal",
+      "autor": "Joan Coderch y Javier Malavia",
+      "tipo": "Bronce",
+      "localizacion": "Puerto de Valencia",
+      "coordenadas": [
+        39.46288993193515,
+        -0.3227380572805761
+      ]
     }
   ]
 }

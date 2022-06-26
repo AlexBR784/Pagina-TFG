@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eduardo Escalante</title>
+    <link rel="stylesheet" href="../../dist/css/specific.min.css">
+</head>
+<body>
+    <div id="googlemaps">
+        <img src="../../images/maps.png" alt="Google Maps">
+    </div>
+    <div class="back">
+        <img src="../../images/Back_Arrow.png" onClick="window.location.href = '../index.html'">
+    </div>
+    <div class="container">
+        <h1 class="name">Eduardo Escalante</h1>
+    </div>
+    <div class="info">
+        <div id="text" class="info_container">
+            <p>Eduardo Escalante, (Cabañal 1834 - 1895), fue autor teatral de sainetes en valenciano. En 1899 y a petición de la sociedad Lo Rat Penat, el escultor Mariano Benlliure Gil esculpió un busto en bronce del autor teatral y un collarín también de bronce que rodeaba el fuste del trozo de columna sobre el que se elevaba.</p>
+            <p>Sobre el fuste en bronce se hace referencia a 4 obras teatrales labradas por Mariano Benlliure.</p>
+        </div>
+        <div id="image" class="info_container_img">
+            <img style="height: 100%; width: 70%;" src="../../images/Esculturas/escalante.jpg">
+        </div>
+    </div>
+    
+</body>
+<script>
+    var currentMapsUrl = localStorage.getItem("MapsLocation");
+
+    const gmapsdiv = document.getElementById("googlemaps");
+    gmapsdiv.onclick = ()=>{
+        window.open(currentMapsUrl);
+    }
+</script>
+</html>

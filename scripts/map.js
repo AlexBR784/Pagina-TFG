@@ -71,8 +71,8 @@ function crearMapa(json) {
           <th>${json.Esculturas[i].tipo}</th>
         </tr>
         <tr>
-          <td>Coords.</td>
-          <td>${json.Esculturas[i].coordenadas}</td>
+          <td>Loc.</td>
+          <td>${json.Esculturas[i].localizacion}</td>
         </tr>
       </tbody>
       </table>`
