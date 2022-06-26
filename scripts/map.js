@@ -3,26 +3,26 @@ const search = document.getElementById("search");
 const filterPiedra = document.getElementById("filterPiedra");
 const filterMarmol = document.getElementById("filterMarmol");
 const filterBronce = document.getElementById("filterBronce");
+const filterRemove = document.getElementById("filterRemove");
 var materialFiltered = false;
 
-/* An array that stores all the markers. */
+/* Array con los marcadores. */
 var markers = [];
-/* A global variable that stores the URL of the Google Maps page. */
+/* Variable global que almacena la URL de Google Maps. */
 var mapsUrl = "";
-/* Creating a new XMLHttpRequest object. */
+
 var xhr = new XMLHttpRequest();
 
-/* A constant that stores the path to the JSON file. */
 const JSONpath = "../json/esculturas.json";
 
-/* Fetching the JSON file and then calling the function crearMapa with the JSON file as a parameter. */
+/* Fetching del archivo JSON y llama a crearMapa(). */
 fetch(JSONpath)
   .then((response) => response.json())
   .then((json) => crearMapa(json));
 
 /**
- * It creates a map, adds markers to it, and adds event listeners to the markers.
- * @param json - the json file
+ * Crea un mapa, añade los marcadores con sus listeners.
+ * @param json - fichero JSON con información de esculturas.
  */
 function crearMapa(json) {
   map = L.map("map").setView([39.47, -0.37], 14);
@@ -53,29 +53,11 @@ function crearMapa(json) {
     });
     marker.bindPopup(
       `
-      <style> td:nth-child(2n),th:nth-child(2n){border-left: 3px solid #adadad;}
-      td,th{padding:2px;}
-      </style>
-      <table style='border-spacing: 0px;'>
-      <tbody>
-        <tr style='background-color: #d1d1d1'>
-          <th>Nombre</th>
-          <th>${json.Esculturas[i].nombre}</th>
-        </tr>
-        <tr>
-          <td>Autor</td>
-          <td>${json.Esculturas[i].autor}</td>
-        </tr>
-        <tr style='background-color: #d1d1d1'>
-          <th>Material</th>
-          <th>${json.Esculturas[i].tipo}</th>
-        </tr>
-        <tr>
-          <td>Loc.</td>
-          <td>${json.Esculturas[i].localizacion}</td>
-        </tr>
-      </tbody>
-      </table>`
+      <b>Nombre: ${json.Esculturas[i].nombre} </b><br/>
+      <b>Autor: ${json.Esculturas[i].autor}</b><br/>
+      <b>Lugar: ${json.Esculturas[i].localizacion}</b><br/>
+      <b>Material: ${json.Esculturas[i].tipo}</b><br/>
+      `
     );
 
     marker.on("mouseover", function (e) {
@@ -120,32 +102,38 @@ function crearMapa(json) {
     },
     false
   ); //Llamando a la funcion dentro de una funcion evitamos que se llame automaticamente
-
+  filterRemove.addEventListener("click", function () {
+    filterMat("remove");
+  });
   Init(json);
 }
 
 /**
- * If the material is not equal to the filter, remove the marker from the map. If the material is equal
- * to the filter, add the marker to the map
- * @param f - the material to filter by
+ * Si el material es desigual al filtro, este se elimina del mapa. Si no, se añade.
+ * @param f - material para filtrar
  */
 function filterMat(f) {
-  materialFiltered = true;
-  for (var i = 0; i < markers.length; i++) {
-    if (markers[i].options.material != f) {
-      map.removeLayer(markers[i]);
-    } else {
-      if (!map.hasLayer(markers[i])) {
-        map.addLayer(markers[i]);
+  if (f == "remove") {
+    for (var i = 0; i < markers.length; i++) {
+      if (!map.hasLayer(markers[i])) map.addLayer(markers[i]);
+    }
+  } else {
+    materialFiltered = true;
+    for (var i = 0; i < markers.length; i++) {
+      if (markers[i].options.material != f) {
+        map.removeLayer(markers[i]);
+      } else {
+        if (!map.hasLayer(markers[i])) {
+          map.addLayer(markers[i]);
+        }
       }
     }
   }
 }
 
 /**
- * Once this function Init is called, it adds listeners to the search input HTML element showing an alert if needed
- * and only showing the markers with ID/name equal to the input value
- * @param json - the JSON file with the sculptures information
+ * Cuando se llama a Init, añade los listeners para la barra de búsqueda mostrando una alerta de filtros si es necesario.
+ * @param json - fichero JSON con las esculturas
  */
 function Init(json) {
   search.addEventListener("input", () => {
@@ -170,9 +158,8 @@ function Init(json) {
 }
 
 /**
- * It redirects the user to a page, and if the page doesn't exist, it redirects the user to an error
- * page.
- * @param page - The page ID you want to redirect to.
+ * Redirecciona al usuario a la página de la escultura o a la de error.
+ * @param page - El ID de la página
  */
 function redirectTo(page) {
   xhr.open("head", "./pages/" + page + ".html");

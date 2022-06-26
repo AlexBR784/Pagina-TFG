@@ -7,8 +7,7 @@ var zeroH = "";
 RefreshTime();
 
 /**
- * It gets the current date and time, and then displays it in the HTML element with the id
- * "time_display".
+ * Almacena el tiempo actual (H,M,S), y los muestra en el HTML.
  */
 function RefreshTime() {
   date = new Date();
@@ -23,7 +22,7 @@ function RefreshTime() {
 }
 
 /**
- * It updates the time every second.
+ * Actualiza cada 1 sec.
  */
 function UpdateTime() {
   var refresh = 1000;

@@ -1,6 +1,5 @@
 const fs = require("fs");
 
-/* Reading the file and parsing it into a JSON object. */
 const data = fs.readFileSync("../json/esculturas.test.json");
 
 const esculturas = JSON.parse(data);
@@ -17,7 +16,6 @@ const esculturas = JSON.parse(data);
 *
 */
 
-/* Creating a new array of n objects with the same structure as the original one. */
 const MAX = 1000;
 esculturas.Esculturas = [];
 for (var i = 0; i < MAX; i++) {
