@@ -17,7 +17,8 @@ function RefreshTime() {
   else zeroM = "";
   if (date.getHours() < 10) zeroH = "0";
   else zeroH = "";
-  time_display.innerHTML = `Fecha: ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}; Hora:${zeroH}${date.getHours()}:${zeroM}${date.getMinutes()}:${zeroS}${date.getSeconds()} `;
+  time_display.innerHTML = `Fecha: ${date.getDate()}/${
+    date.getMonth() + 1}/${date.getFullYear()}; Hora:${zeroH}${date.getHours()}:${zeroM}${date.getMinutes()}:${zeroS}${date.getSeconds()} `;
   UpdateTime();
 }
 
